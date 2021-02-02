@@ -1,0 +1,10 @@
+{
+    "version": 0,
+
+    "tools": {
+        "wol-sender": {
+            "label": "WOL-Sender",
+            "path": "index.html"
+        }
+    }
+}

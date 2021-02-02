@@ -1,0 +1,233 @@
+.content-header-extra {
+    background: #f5f5f5;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 20px;
+    width: 100%;
+    position: fixed;
+    z-index: 900;
+    top: 0;
+}
+
+#tab-content {
+    margin-top: 50px;
+}
+
+#wakeonlan-page #clients table.loading {
+    text-align: center;
+    border-top: 1px solid #d1d1d1;
+    border-bottom: 1px solid #d1d1d1;
+    width: 100%;
+}
+
+
+#wakeonlan-page #clients table.loading td {
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+#wakeonlan-page #clients table.clients {
+    width: 100%;
+    font-size: 1.3em;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+#wakeonlan-page #clients table.clients {
+	border: 1px solid #dddddd;
+}
+
+#wakeonlan-page h2 {
+    font-weight: 700;
+}
+
+#status {
+  width: 30%;
+  height: 1.2em;
+  padding-top: 12px;
+  margin-top: 12px;
+  margin-left: 20px;
+  line-height: 1em;
+}
+
+.alarmclock {
+	background: url('../img/alarmclock_q.svg');
+	width: 26px;
+	height: 24px;
+	display: inline-block;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.alarmclock:hover {
+	background: url('../img/alarmclock_r.svg');
+	width: 26px;
+	height: 24px;
+	display: inline-block;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.editpencil {
+	background: url('../img/pencil_n.svg');
+	width: 26px;
+	height: 24px;
+	display: inline-block;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.editpencil:hover {
+	background: url('../img/pencil_w.svg');
+	width: 26px;
+	height: 24px;
+	display: inline-block;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.delete-trash {
+	background: url('../img/trash_e.svg');
+	width: 26px;
+	height: 24px;
+	display: inline-block;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+.delete-trash:hover {
+	background: url('../img/trash_f.svg');
+	width: 26px;
+	height: 24px;
+	display: inline-block;
+	background-repeat: no-repeat;
+	cursor: pointer;
+}
+
+tr td {
+	border-bottom: 1px solid #dddddd;
+	padding-top: 8px !important;
+	padding-bottom: 8px !important;
+}
+
+tr:last-of-type td {
+	border-bottom: none;
+}
+
+tr th {
+	background: #f5f5f5;
+	border-bottom: 1px solid #666666;
+	padding-top: 6px !important;
+	padding-bottom: 6px !important;
+	text-transform: capitalize;
+}
+
+tr:last-of-type td {
+    border-bottom: none;
+}
+
+tr td:first-of-type, tr th:first-of-type {
+    padding-left: 12px !important;
+}
+
+tr td:last-of-type, tr th:last-of-type {
+    padding-right: 12px !important;
+}
+
+.ccc-border {
+    background-image: url('data:image/gif;base64,R0lGODdhAQABAIABAMzMzAAAACwAAAAAAQABAAACAkQBADs=');
+    width: 1px;
+}
+
+#wakeonlan-page #addhost .formlabel {
+    float: left;
+    min-width: 20%;
+    padding-left: 12px;
+}
+
+#wakeonlan-page #addhost .forminput {
+    margin-bottom: 8px;
+}
+
+#wakeonlan-page #addhost .formsubmit {
+	float: left;
+	margin-right: 14px;
+}
+
+#wakeonlan-page #addhost .formsubmit button,
+#wakeonlan-page #addhost .formreset button {
+	padding: 3px 12px 3px 12px;
+}
+
+#wakeonlan-page #addhost .forminput.macaddress input {
+	width: 37px;
+	margin-right: 6px;
+	margin-left: 3px;
+}
+
+#wakeonlan-page #addhost .forminput.macaddress input:first-of-type {
+	margin-left: 0px;
+}
+
+#wakeonlan-page #addhost .forminput.macaddress input:last-of-type {
+	margin-right: 0px;
+}
+
+#wakeonlan-page #addhost .forminput.subnet input {
+	width: 45px;
+	margin-right: 6px;
+	margin-left: 3px;
+}
+
+#wakeonlan-page #addhost .forminput.subnet input:first-of-type {
+	margin-left: 0px;
+}
+
+#wakeonlan-page #addhost .forminput.subnet input:last-of-type {
+	margin-right: 0px;
+}
+
+#wakeonlan-page #addhost .forminput.netmask input {
+	width: 45px;
+	margin-right: 6px;
+	margin-left: 3px;
+}
+
+#wakeonlan-page #addhost .forminput.netmask input:first-of-type {
+	margin-left: 0px;
+}
+#wakeonlan-page #addhost .forminput.netmask input:last-of-type {
+	margin-right: 0px;
+}
+
+#wakeonlan-page #addhost .forminput.lastip input {
+	width: 45px;
+	margin-right: 6px;
+	margin-left: 3px;
+}
+
+#wakeonlan-page #addhost .forminput.lastip input:first-of-type {
+	margin-left: 0px;
+}
+#wakeonlan-page #addhost .forminput.lastip input:last-of-type {
+	margin-right: 0px;
+}
+
+#wakeonlan-page #addhost .forminput input.validated {
+    border: 1px solid #0fac0f;
+    background-color: inherit;
+}
+#wakeonlan-page #addhost .forminput input.invalid {
+    border: 1px solid #ff0000;
+    background-color: #ffcccc;
+}
+
+#wakeonlan-page #addhost .maclookup {
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	width: 30%;
+	display:inline-block;
+	line-height: 1.1em;
+	padding-left:14px;
+}

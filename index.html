@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--
+Copyright (C) 2017 Red Hat, Inc.
+
+Cockpit is free software; you can redistribute it and/or modify it
+under the terms of the GNU Lesser General Public License as published by
+the Free Software Foundation; either version 2.1 of the License, or
+(at your option) any later version.
+
+Cockpit is distributed in the hope that it will be useful, but
+WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+Lesser General Public License for more details.
+
+You should have received a copy of the GNU Lesser General Public License
+along with this package; If not, see <http://www.gnu.org/licenses/>.
+-->
+<html lang="en">
+<head>
+    <title translate>Wake On LAN Service</title>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="../base1/patternfly.css" type="text/css" rel="stylesheet">
+    <link href="system.css" type="text/css" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <script type="text/javascript" src="../base1/jquery.js"></script>
+    <script type="text/javascript" src="../base1/cockpit.js"></script>
+    <script type="text/javascript" src="js/po.js"></script>
+</head>
+
+<body id="wakeonlan">
+
+  <div id="wakeonlan-page">
+    <div class="content-header-extra">
+      <div class="btn-group" id="wol-sender-filter" role="tablist">
+        <button class="btn btn-default active" role="tab" aria-current=true data-tab="clients" translatable="yes">Clients</button>
+        <button class="btn btn-default" role="tab" data-tab="addhost" translatable="yes">Add Host</button>
+        <button class="btn btn-default" role="tab" data-tab="custom" translatable="yes">Custom</button>
+        <button class="btn btn-default" role="tab" data-tab="settings" translatable="yes">Settings</button>
+      </div>
+    </div>
+
+    <div id ="tab-content" class="container-fluid page-ct">
+    
+	    <div id="clients" class="tabcontainer">
+		    <h2>Clients</h2>
+		    <table class="loading">
+			<tr><td>
+		    	<div class="spinner spinner-lg progress-main-view"></div>
+			</td></tr>
+		    </table>
+	    </div>
+
+	    <div id="addhost" class="tabcontainer" hidden>
+		    <h2>Add Host</h2>
+		    <div class="formlabel">hostname:</div><div class="forminput"><input type="text" placeholder="hostname" name="hostname" /></div>
+		    <div class="formlabel">description:</div><div class="forminput"><input type="text" placeholder="description" name="description" /></div>
+		    <div class="formlabel">mac address:</div><div class="forminput macaddress">
+			    <input type="text" maxlength="2" name="mac-1" />:
+			    <input type="text" maxlength="2" name="mac-2" />:
+			    <input type="text" maxlength="2" name="mac-3" />:
+			    <input type="text" maxlength="2" name="mac-4" />:
+			    <input type="text" maxlength="2" name="mac-5" />:
+			    <input type="text" maxlength="2" name="mac-6" />
+		            <span class="maclookup"></span></div>
+		    <div class="formlabel">subnet:</div><div class="forminput ipaddress subnet">
+			    <input type="text" maxlength="3" name="subnet-1" />.
+			    <input type="text" maxlength="3" name="subnet-2" />.
+			    <input type="text" maxlength="3" name="subnet-3" />.
+			    <input type="text" maxlength="3" name="subnet-4" /></div>
+		    <div class="formlabel">netmask:</div><div class="forminput ipaddress netmask">
+			    <input type="text" maxlength="3" name="netmask-1" />.
+			    <input type="text" maxlength="3" name="netmask-2" />.
+			    <input type="text" maxlength="3" name="netmask-3" />.
+			    <input type="text" maxlength="3" name="netmask-4" /></div>
+		    <div class="formlabel">IP address:</div><div class="forminput ipaddress lastip">
+			    <input type="text" maxlength="3" name="lastip-1" />.
+			    <input type="text" maxlength="3" name="lastip-2" />.
+			    <input type="text" maxlength="3" name="lastip-3" />.
+			    <input type="text" maxlength="3" name="lastip-4" /></div>
+		    <div class="formsubmit"><button class="btn btn-primary">add host</button></div>
+		    <div class="formreset"><button class="btn btn-default">reset all</button></div>
+	    </div>
+
+	    <div id="custom" class="tabcontainer" hidden>
+		    <h2>Custom</h2>
+	    </div>
+
+	    <div id="settings" class="tabcontainer" hidden>
+		    <h2>Settings</h2>
+	    </div>
+
+    </div>
+
+<div id="status">idle<div>
+
+</div>
+
+  <script src="js/wakeonlan.js"></script>
+</body>
+</html>
