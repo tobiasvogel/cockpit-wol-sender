@@ -1,6 +1,37 @@
 const result = document.getElementById('status');
 
+window.sqlite_helper_read = "";
+window.sqlite_helper_update = "";
+window.sqlite_helper_insert = "";
+window.sqlite_helper_delete = "";
+
+window.sqlite_database_hosts = "";
+window.sqlite_database_extra = "";
+
 (function() {
+
+	$.ajax({
+  		dataType: "json",
+  		url: 'config/config.json',
+  		//data: data,
+		async: false,
+		success: function(data) {
+			sqlite_helper_read = data.config.helpers["helper-read"];
+			sqlite_helper_update = data.config.helpers["helper-update"];
+			sqlite_helper_insert = data.config.helpers["helper-insert"];
+			sqlite_helper_delete = data.config.helpers["helper-delete"];
+			sqlite_database_hosts = data.config.databases["hosts-db"];
+			sqlite_database_extra = data.config.databases["extra-db"];
+		
+			cockpit.spawn([sqlite_helper_read, sqlite_database_hosts])
+		        .stream(table_output)
+		        .catch(table_failed);
+
+			result.innerHTML = "";
+
+		}
+	});
+
 
 	$( "#wakeonlan-page #addhost div.forminput.macaddress input" ).on( "blur", function () {
 		if ($( this )[0].value == "") {
@@ -188,17 +219,10 @@ const result = document.getElementById('status');
 
 		addhost_disableall();
 
-		cockpit.spawn(["/home/pi/.local/share/cockpit/wol-sender/cgi/insert-sqlite.pl", "/home/pi/.local/share/cockpit/wol-sender/db/wakeonlan.db", datastring])
+		cockpit.spawn([sqlite_helper_insert, sqlite_database_hosts, datastring])
 		.then(addhost_success(hostname))
 		.catch(table_failed);
 	});
-
-	cockpit.spawn(["/home/pi/.local/share/cockpit/wol-sender/cgi/read-sqlite.pl", "/home/pi/.local/share/cockpit/wol-sender/db/wakeonlan.db"])
-        .stream(table_output)
-        .catch(table_failed);
-
-	result.innerHTML = "";
-
 })();
 
 $( "#wol-sender-filter.btn-group button" ).on( "click", function() {
@@ -291,8 +315,24 @@ function macaddress_lookup() {
 		}
 }
 
+function isJSON(str) {
+    try {
+        return !!(JSON.parse(str) && str);
+    } catch (e) {
+        return false;
+    }
+}
+
 function maclookup_success(data) {
-	$( "#wakeonlan-page #addhost .maclookup" ).html(data);
+	if (isJSON(data)) {
+		if (data == "{\"errors\":{\"detail\":\"Not Found\"}}") {
+			$( "#wakeonlan-page #addhost .maclookup" ).html("");
+		} else {
+			$( "#wakeonlan-page #addhost .maclookup" ).html(data);
+		}
+	} else {
+		$( "#wakeonlan-page #addhost .maclookup" ).html(data);
+	}
 }
 
 function maclookup_failed() {

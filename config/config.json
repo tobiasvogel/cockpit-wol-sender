@@ -1,0 +1,15 @@
+{
+    "config": {
+        "helpers": {
+            "helper-read": "/usr/share/cockpit/cockpit-wol-sender/cgi/read-sqlite.pl",
+            "helper-insert": "/usr/share/cockpit/cockpit-wol-sender/cgi/insert-sqlite.pl",
+            "helper-update": "/usr/share/cockpit/cockpit-wol-sender/cgi/update-sqlite.pl",
+            "helper-delete": "/usr/share/cockpit/cockpit-wol-sender/cgi/delete-sqlite.pl"
+        },
+        "databases": {
+            "hosts-db": "/usr/share/cockpit/cockpit-wol-sender/db/hosts.db",
+            "extra-db": "/usr/share/cockpit/cockpit-wol-sender/db/extra.db"
+        }
+    }
+}
+
